@@ -1,24 +1,5 @@
 use bd;
 /*Procedures a ajouter*/
-/*Ajouter pilote*/
-DELIMITER $$
-$$ 
-DROP procedure if exists ajouter_pilote$$
-CREATE PROCEDURE ajouter_pilote(IN numero_SS INT, IN numero_license INT, IN heures_vol INT, IN prenom varchar(45), IN nom varchar(45), IN adresse varchar(45), IN salaire INT)
-BEGIN
-insert into pilote values(numero_SS,numero_license,heures_vol,prenom,nom,adresse,salaire);
-END
-$$
-
-/*Ajouter membre_equipage*/
-DELIMITER $$
-$$ 
-DROP procedure if exists ajouter_membre$$
-CREATE PROCEDURE ajouter_membre(IN numero_SS INT, IN fonction varchar(45), IN heures_vol INT, IN prenom varchar(45), IN nom varchar(45), IN adresse varchar(45), IN salaire INT)
-BEGIN
-insert into membre_equipage values(numero_SS,fonction,heures_vol,prenom,nom,adresse,salaire);
-END
-$$
 
 /*Ajouter avion*/
 DELIMITER $$
@@ -27,26 +8,6 @@ DROP procedure if exists ajouter_avion$$
 CREATE PROCEDURE ajouter_avion(IN numero_immatriculation varchar(10), IN type_avion varchar(10))
 BEGIN
 insert into avion values(numero_immatriculation,type_avion);
-END
-$$
-
-/*Ajouter aeroport*/
-DELIMITER $$
-$$ 
-DROP procedure if exists ajouter_aeroport$$
-CREATE PROCEDURE ajouter_aeroport(IN nom_aeroport varchar(20), IN code_aeroport varchar(10),IN ville varchar(45))
-BEGIN
-insert into aeroport values(nom_aeroport,code_aeroport,ville);
-END
-$$
-
-/*Ajouter vol*/
-DELIMITER $$
-$$ 
-DROP procedure if exists ajouter_vol$$
-CREATE PROCEDURE ajouter_vol(IN numero_vol INT, IN debut_periode date, IN fin_periode date, IN heure_depart time, IN heure_arrivee time, IN numero_immatriculation varchar(11))
-BEGIN
-insert into vol values(numero_vol,debut_periode,fin_periode,heure_depart,heure_arrivee,numero_immatriculation);
 END
 $$
 
