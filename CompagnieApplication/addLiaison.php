@@ -100,7 +100,19 @@
                         <div class="col-6 col-12-xsmall">
                             <label style="text-align: left;">Code Aéroport Départ<span
                                     style="color:red;">*</span></label>
-                            <input type="text" name="codeD" value="" placeholder="Code Aéroport Départ">
+                            <select name="codeD">
+                                <?php 
+											$mysqli = new mysqli("db", "root", "root", "bd");
+														if ($mysqli->connect_errno) {
+                                                            echo "<center><p><b>ERROR:' . $mysqli->error' </b></p></center>";											}
+											$result=$mysqli->query("select distinct code from aeroport;");
+											echo  "<option>Code aéroport de départ</option>";
+											while($row = mysqli_fetch_row($result))
+											{
+											echo  "<option value =".$row[0].">$row[0]</option>";
+											}
+									?>
+                            </select>
                         </div>
 
                         <div class="col-6 col-12-xsmall">
@@ -126,7 +138,19 @@
                         <div class="col-6 col-12-xsmall">
                             <label style="text-align: left;">Code Aéroport d'arrivée<span
                                     style="color:red;">*</span></label>
-                            <input type="text" name="codeA" value="" placeholder="Code Aéroport d'arrivée">
+                            <select name="codeA">
+                                <?php 
+											$mysqli = new mysqli("db", "root", "root", "bd");
+														if ($mysqli->connect_errno) {
+                                                            echo "<center><p><b>ERROR:' . $mysqli->error' </b></p></center>";											}
+											$result=$mysqli->query("select distinct code from aeroport;");
+											echo  "<option>Code aéroport d'arrivée </option>";
+											while($row = mysqli_fetch_row($result))
+											{
+											echo  "<option value =".$row[0].">$row[0]</option>";
+											}
+									?>
+                            </select>
                         </div>
 
                         <div>

@@ -104,7 +104,7 @@ CREATE TABLE depart (
   prix int(11) NOT NULL,
   PRIMARY KEY (id_depart),
   KEY numero_vol_idx (numero_vol),
-  CONSTRAINT numero_vol FOREIGN KEY (numero_vol) REFERENCES vol (numero_vol)
+  CONSTRAINT numero_vol FOREIGN KEY (numero_vol) REFERENCES vol (numero_vol) ON DELETE CASCADE
 );
 INSERT INTO depart VALUES (1,178,2,'2020-11-01',1,100),(2,0,180,'2020-11-08',1,105),(3,180,0,'2020-11-15',1,95),(4,180,0,'2020-11-22',1,97),(5,180,0,'2020-11-29',1,102),(6,180,0,'2020-12-01',2,90),(7,180,0,'2020-12-08',2,95),(8,180,0,'2020-12-15',2,98),(9,180,0,'2020-12-22',2,95),(10,180,0,'2020-12-29',2,100),(11,180,0,'2021-01-01',3,105),(12,180,0,'2021-01-08',3,105),(13,180,0,'2021-01-15',3,95),(14,180,0,'2021-01-22',3,98),(15,180,0,'2021-01-29',3,92);
 
@@ -149,7 +149,7 @@ CREATE TABLE membre_equipage_depart (
   KEY numero_SS2_idx (numero_SS),
   KEY id_depart3_idx (id_depart),
   CONSTRAINT id_depart3 FOREIGN KEY (id_depart) REFERENCES depart (id_depart),
-  CONSTRAINT numero_SS2 FOREIGN KEY (numero_SS) REFERENCES membre_equipage (numero_SS)
+  CONSTRAINT numero_SS2 FOREIGN KEY (numero_SS) REFERENCES membre_equipage (numero_SS) ON DELETE CASCADE
 );
 
 INSERT INTO membre_equipage_depart VALUES (6900006,1),(6900008,1),(6900006,2),(6900008,2),(6900006,3),(6900008,3),(6900006,4),(6900008,4),(6900006,5),(6900008,5),(6900006,6),(6900008,6),(6900006,7),(6900008,7),(6900006,8),(6900008,8),(6900006,9),(6900008,9),(6900006,10),(6900008,10),(6900007,11),(6900009,11),(6900007,12),(6900009,12),(6900007,13),(6900009,13),(6900007,14),(6900009,14),(6900007,15),(6900009,15);
@@ -177,8 +177,8 @@ CREATE TABLE pilote_depart (
   id_depart int(11) NOT NULL,
   KEY id_depart_idx (id_depart),
   KEY numero_SS3_idx (numero_SS),
-  CONSTRAINT id_depart2 FOREIGN KEY (id_depart) REFERENCES depart (id_depart),
-  CONSTRAINT numero_SS3 FOREIGN KEY (numero_SS) REFERENCES pilote (numero_SS)
+  CONSTRAINT id_depart2 FOREIGN KEY (id_depart) REFERENCES depart (id_depart) ON DELETE CASCADE,
+  CONSTRAINT numero_SS3 FOREIGN KEY (numero_SS) REFERENCES pilote (numero_SS) ON DELETE CASCADE
 );
 
 INSERT INTO pilote_depart VALUES (6900001,1),(6900001,2),(6900001,3),(6900001,4),(6900001,5),(6900002,6),(6900002,7),(6900002,8),(6900002,9),(6900002,10),(6900003,11),(6900003,12),(6900003,13),(6900003,14),(6900003,15),(6900004,11),(6900004,12),(6900004,13),(6900004,14),(6900004,15);
@@ -196,9 +196,9 @@ CREATE TABLE vol_aeroport (
   KEY numero_vol2_idx (numero_vol),
   KEY aerport_depart_idx (nom_aeroport_depart,code_depart),
   KEY aeroport_destination_idx (nom_aeroport_destination,code_destination),
-  CONSTRAINT aeroport_destination FOREIGN KEY (nom_aeroport_destination, code_destination) REFERENCES aeroport (nom_aeroport, code),
-  CONSTRAINT aeroport_depart FOREIGN KEY (nom_aeroport_depart, code_depart) REFERENCES aeroport (nom_aeroport, code),
-  CONSTRAINT numero_vol2 FOREIGN KEY (numero_vol) REFERENCES vol (numero_vol)
+  CONSTRAINT aeroport_destination FOREIGN KEY (nom_aeroport_destination, code_destination) REFERENCES aeroport (nom_aeroport, code) ON DELETE CASCADE,
+  CONSTRAINT aeroport_depart FOREIGN KEY (nom_aeroport_depart, code_depart) REFERENCES aeroport (nom_aeroport, code) ON DELETE CASCADE,
+  CONSTRAINT numero_vol2 FOREIGN KEY (numero_vol) REFERENCES vol (numero_vol) ON DELETE CASCADE
 );
 
 INSERT INTO vol_aeroport VALUES (1,'Saint-Exupery','LYS','Charles_de_Gaulle','CDG'),(2,'Charles_de_Gaulle','CDG','Saint-Exupery','LYS'),(3,'Saint-Exupery','LYS','Orly','ORY');

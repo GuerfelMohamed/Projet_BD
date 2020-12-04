@@ -14,7 +14,7 @@
         echo "<center><p><b>ERROR:' . $mysqli->error' </b></p></center>";
 	}
 	else{
-		header('location: http://localhost/CompagnieApplication/adminView.php');
+		header('location: http://localhost:8001/adminView.php');
 
 	}
 	}}

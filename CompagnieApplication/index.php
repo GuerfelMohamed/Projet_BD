@@ -56,7 +56,8 @@
             <div class="highlights">
                 <section>
                     <div class="card" style="width: 25rem;">
-                        <img class="card-img-top" src="images/pic01.jpg" alt="Card image cap">
+                        <a href="rechercher.php"><img class="card-img-top" src="images/pic01.jpg"
+                                alt="Card image cap"></a>
                         <div class="card-body">
                             <p class="card-text">Les bonnes idées de voyage ne manquent pas sur les destinations
                                 desservies par Avianav</p>
@@ -66,7 +67,8 @@
                 </section>
                 <section>
                     <div class="card" style="width: 25rem;">
-                        <img class="card-img-top" src="images/pic02.jpg" alt="Card image cap">
+                        <a href="rechercher.php"><img class="card-img-top" src="images/pic02.jpg"
+                                alt="Card image cap"></a>
                         <div class="card-body">
                             <p class="card-text">Découvrez le lieu idéal pour votre prochain week-end ou vos prochaines
                                 vacances !</p>
@@ -77,7 +79,8 @@
                 </section>
                 <section>
                     <div class="card" style="width: 25rem;">
-                        <img class="card-img-top" src="images/pic03.jpg" alt="Card image cap">
+                        <a href="rechercher.php"><img class="card-img-top" src="images/pic03.jpg"
+                                alt="Card image cap"></a>
                         <div class="card-body">
                             <p class="card-text">Les bonnes idées de voyage ne manquent pas sur les destinations
                                 desservies par Avianav
@@ -89,7 +92,7 @@
                 <section>
                     <div class="content">
                         <header>
-                            <a style="color:red;" style="color:red;" href="#" class="icon fa-line-chart"><span
+                            <a style="color:red;" style="color:red;" href="about.html" class="icon fa-line-chart"><span
                                     class="label">Icon</span></a>
                             <h3>À propos Avianav</h3>
                         </header>
@@ -99,7 +102,7 @@
                 <section>
                     <div class="content">
                         <header>
-                            <a style="color:red;" href="#" class="icon fa-paper-plane-o"><span
+                            <a style="color:red;" href="contact.html" class="icon fa-paper-plane-o"><span
                                     class="label">Icon</span></a>
                             <h3>Contacter Avianav</h3>
                         </header>
@@ -109,7 +112,7 @@
                 <section>
                     <div class="content">
                         <header>
-                            <a style="color:red;" href="#" class="icon fa fa-user-circle"><span
+                            <a style="color:red;" href="signin.php" class="icon fa fa-user-circle"><span
                                     class="label">Icon</span></a>
                             <br></br>
                             <h3>Devenir un client</h3>

@@ -1,4 +1,54 @@
-<!DOCTYPE html>
+<?php
+	if (isset($_POST['submit_p'])){
+		if (isset($_POST['numero_ss'])){
+		$numeroSS=$_POST['numero_ss'];
+	    $mysqli = new mysqli("db", "root", "root", "bd");
+	    if (!$res=$mysqli->multi_query("delete from pilote where numero_SS='$numeroSS'")) 
+	    {
+		    echo "<center><p><b>ERROR:' . $mysqli->error' </b></p></center>";
+	    }
+	    else{
+		    header('location: http://localhost:8001/adminView.php');
+	    }
+    }}
+    if (isset($_POST['submit_a'])){
+		if (isset($_POST['nom_aeroport']) and isset($_POST['code'])){
+		$nom_aeroport=$_POST['nom_aeroport'];
+		$code=$_POST['code'];
+	    $mysqli = new mysqli("db", "root", "root", "bd");
+	    if (!$res=$mysqli->multi_query("delete from aeroport where nom_aeroport='$nom_aeroport' and code='$code'")) 
+	    {
+		    echo "<center><p><b>ERROR:' . $mysqli->error' </b></p></center>";
+	    }
+	    else{
+		    header('location: http://localhost:8001/adminView.php');
+	    }
+    }}
+    if (isset($_POST['submit_e'])){
+		if (isset($_POST['numero_ss_membre'])){
+		$numero_ss_membre=$_POST['numero_ss_membre'];
+	    $mysqli = new mysqli("db", "root", "root", "bd");
+	    if (!$res=$mysqli->multi_query("delete from membre_equipage where numero_SS='$numero_ss_membre'")) 
+	    {
+		    echo "<center><p><b>ERROR:' . $mysqli->error' </b></p></center>";
+	    }
+	    else{
+		    header('location: http://localhost:8001/adminView.php');
+	    }
+    }}
+    if (isset($_POST['submit_l'])){
+		if (isset($_POST['numero_vol_liaison'])){
+		$numero_vol_liaison=$_POST['numero_vol_liaison'];
+	    $mysqli = new mysqli("db", "root", "root", "bd");
+	    if (!$res=$mysqli->multi_query("delete from vol_aeroport where numero_vol='$numero_vol_liaison'")) 
+	    {
+		    echo "<center><p><b>ERROR:' . $mysqli->error' </b></p></center>";
+	    }
+	    else{
+		    header('location: http://localhost:8001/adminView.php');
+	    }
+	}}
+?>
 <html lang="en">
 
 <head>
@@ -54,6 +104,7 @@
                             <th>Heures de vol</th>
                             <th>Numéro License</th>
                             <th>Adresse</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -71,19 +122,28 @@
 						$numero_license=$row[1];
 						$numero_ss=$row[0];
 						$adresse=$row[5];
-						echo " <tr>
+                        echo "
+                        <tr>
 							<td>$numero_ss</td>
 							<td>$nom_pilote</td>
 							<td>$prenom_pilote</td>
 							<td>$salaire_pilote</td>
 							<td>$heure_vol</td>
 							<td>$numero_license</td>
-							<td>$adresse</td>
+                            <td>$adresse</td>
+                            <td>
+                            <form method='post'>
+                                <input type='hidden' name='numero_ss' value='$numero_ss'>
+                                <ul class='actions'>
+                                    <li><input type='submit' name='submit_p' value='Delete' class='primary'/></li>
+                                </ul>
+                            </form>
+                            </td>
 						</tr>";}
 
 					}
 					}while ($mysqli->more_results() && $mysqli->next_result());
-					?>
+                    ?>
                     </tbody>
                 </table>
 
@@ -99,6 +159,7 @@
                         <th>Nom aéroport</th>
                         <th>Code</th>
                         <th>Ville</th>
+                        <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -115,7 +176,16 @@
 						echo " <tr>
 							<td>$nom_aeroport</td>
 							<td>$code</td>
-							<td>$ville</td>
+                            <td>$ville</td>
+                            <td>
+                            <form method='post'>
+                            <input type='hidden' name='nom_aeroport' value='$nom_aeroport'>
+                            <input type='hidden' name='code' value='$code'>
+                                <ul class='actions'>
+                                    <li><input type='submit' name='submit_a' value='Delete' class='primary'/></li>
+                                </ul>
+                            </form>
+                            </td>
 						</tr>";}
 
 					}
@@ -141,6 +211,7 @@
                             <th>Heures de vol</th>
                             <th>Fonction</th>
                             <th>Adresse</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -165,7 +236,15 @@
 							<td>$salaire_membre</td>
 							<td>$heure_vol_membre</td>
 							<td>$fonction</td>
-							<td>$adresse_membre</td>
+                            <td>$adresse_membre</td>
+                            <td>
+                            <form method='post'>
+                            <input type='hidden' name='numero_ss_membre' value='$numero_ss_membre'>
+                                <ul class='actions'>
+                                    <li><input type='submit' name='submit_e' value='Delete' class='primary'/></li>
+                                </ul>
+                            </form>
+                            </td>
 						</tr>";}
 
 					}
@@ -212,7 +291,7 @@
 							<td>$finP</td>
 							<td>$heureD</td>
 							<td>$heureA</td>
-							<td>$numero_imm</td>
+                            <td>$numero_imm</td>
 						</tr>";}
 
 					}
@@ -235,6 +314,7 @@
                             <th>Code aéroport départ</th>
                             <th>Nom aéroport arrivée</th>
                             <th>Code aéroport arrivée</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -255,7 +335,15 @@
 							<td>$aeropD</td>
 							<td>$codeD</td>
 							<td>$aeropA</td>
-							<td>$codeA</td>
+                            <td>$codeA</td>
+                            <td>
+                            <form method='post'>
+                            <input type='hidden' name='numero_vol_liaison' value='$numero_vol_liaison'>
+                                <ul class='actions'>
+                                    <li><input type='submit' name='submit_l' value='Delete' class='primary'/></li>
+                                </ul>
+                            </form>
+                            </td>
 						</tr>";}
 
 					}
