@@ -1,5 +1,6 @@
-<?php ob_start(); ?>
 <?php 
+    session_start();
+    $_SESSION["idUser"] = NULL;
 	$erreur=False;
 	$message="";
 	if (isset($_POST['submit'])){
@@ -32,12 +33,11 @@
 							while($rowAuto=mysqli_fetch_row($auto)){
 							//debug_to_console($rowAuto[1]);
 							if($rowAuto[1]!=0){
-							header("location: http://localhost:8001/passagerView.php?idPassager=$idUser");
-							ob_end_flush();
+                            header("location: http://localhost:8001/passagerView.php?idPassager=$idUser");
+                            $_SESSION["idUser"] = $idUser;
 														}
 						if($rowAuto[1]==0){
 							header("location: http://localhost:8001/adminView.php");
-							ob_end_flush();
 											}
 						}}
 						else {$erreur=True;
@@ -55,7 +55,8 @@
 		if($erreur){
 			echo "<center><p><b>ERROR:' . $message' </b></p></center>";
 		}
-	}
+    }
+    echo $_SESSION["idUser"];
 ?>
 <html lang="en">
 

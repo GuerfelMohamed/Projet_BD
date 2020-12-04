@@ -8,11 +8,10 @@
 	$arrivee = $_GET['arrivee'];
 	$result=$mysqli->query("select prix FROM depart WHERE id_depart='$id_Depart';");
 	$res=$result->fetch_assoc();
-	$prix=$res['prix'];
+    $prix=$res['prix'];
+    $verif=$_GET['idUser'];
 ?>
 <?php
-	session_start();
-	$verif=$_SESSION['idUser'];
 	if (isset($_POST['submit'])and $verif!=NULL){
 		if (isset($_POST['nomPassager']) and isset($_POST['prenomPassager'])and isset($_POST['numeroPassager'])and isset($_POST['adressePassager'])){	
 		$mysqli = new mysqli("db", "root", "root", "bd");
@@ -20,7 +19,6 @@
 				$prenom=$_POST['prenomPassager'];
 				$passeport=$_POST['numeroPassager'];
 				$adresse=$_POST['adressePassager'];
-				$verif=$_SESSION['idUser'];
 				if (!$resInsert=$mysqli->multi_query("CALL nouveau_passager('$passeport','$prenom','$nom','$adresse',$verif,$id_Depart)"))
 				{
 					echo "<center><p><b>ERROR:' . $mysqli->error' </b></p></center>";
@@ -28,7 +26,7 @@
 				else{
 					header("location: http://localhost:8001/billet.php?idDepart=$id_Depart&nom=$nom&prenom=$prenom&passeport=$passeport&adresse=$adresse");
 				}
-	}}
+	            }}
 	else{
 		if (isset($_POST['nomPassager']) and isset($_POST['prenomPassager'])and isset($_POST['numeroPassager'])and isset($_POST['adressePassager']))
 		{	
@@ -45,7 +43,6 @@
 				header("location: http://localhost:8001/billet.php?idDepart=$id_Depart&nom=$nom&prenom=$prenom&passeport=$passeport&adresse=$adresse");
 			}
 	}}
-	session_destroy()
 ?>
 <html lang="en">
 

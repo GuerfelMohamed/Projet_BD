@@ -1,7 +1,8 @@
 <?php
+    $idUser = $_GET['acces'];
 	if (isset($_POST['submit'])){		
 		if (isset($_POST['villesDepart']) and isset($_POST['villesArrivee']) and isset($_POST['datealler'])){
-			header('location: http://localhost:8001/vol.php?villesDepart='.$_POST['villesDepart'].'&villesArrivee='.$_POST['villesArrivee'].'&datealler='.$_POST['datealler']);
+			header('location: http://localhost:8001/vol.php?villesDepart='.$_POST['villesDepart'].'&villesArrivee='.$_POST['villesArrivee'].'&datealler='.$_POST['datealler'].'&idUser='.$idUser);
 			ob_end_flush();
 		}
 		else $erreur=true;

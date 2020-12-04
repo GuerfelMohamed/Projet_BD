@@ -47,7 +47,7 @@
 				}
 				echo  "<div style='text-align: center;'>
 						<button type='submit' name='submit' class='btn btn-primary btn-block'>
-							<a href='rechercher.php?acces=1'>Acheter un Billet</a>
+							<a href='rechercher.php?acces=$idUser'>Acheter un Billet</a>
 						</button>
 						</div>";
 				$result=$mysqli->query("select * FROM passager WHERE IdUtilisateur=$idUser;");
@@ -59,54 +59,44 @@
 					while($passagerRow = mysqli_fetch_row($result))
 					{
 					$passeport=$passagerRow[0];
-					$result2=$mysqli->multi_query("select * FROM billet WHERE passeport_passager='$passeport';");
+                    $result2=$mysqli->multi_query("select * FROM billet WHERE passeport_passager='$passeport';");
+                    echo '<div class="highlights">';
 					do {
 						if ($result2 = $mysqli->store_result()) {
 							$arrayResult= $result2->fetch_all();
 							foreach($arrayResult as $billetRow){
 													
-								echo "<div class='products'>";
-								echo "<h3 class='title'>Billet $i</h3>";
-								$i=$i+1;	 
-								echo "<div class='item'>";
-								echo "<br></br>";
-								echo "<p class='item-name'>Billet émis à la date : ".$billetRow[1]."</p>";
-								echo "<p class='item-name'>Numéro passeport du passager : ".$billetRow[3]."</p>";
-								$result3=$mysqli->query("select * FROM depart WHERE id_depart=$billetRow[2];");
-								$result3 = mysqli_fetch_row($result3);
-								$result4=$mysqli->query("select * FROM vol WHERE numero_vol=$result3[4];");
-								$result4 = mysqli_fetch_row($result4);
+								echo "<section><div class='content'><header>";
+                                echo "<a href='#' class='icon fa fa-plane'><span class='label'>Icon</span></a>";
+                                echo "<h3>Billet num: $i</h3>";
+                                $i=$i+1;	 
+                                echo "</header>";
+                                echo "<p>Billet émis à la date : $billetRow[1]</p>";
+                                echo "<p>Numéro passeport du passager : $billetRow[3]</p>";
+                                
 								if (!$res=$mysqli->multi_query("CALL info_billet($billetRow[2])")) {
-								echo "Echec lors de l'appel à la procédure stockée : (" . $mysqli->errno . ") " . $mysqli->error;
 								}
-															if ($res = $mysqli->store_result()) {
-																$arrayResult= $res->fetch_all();
-																$row=$arrayResult[0];
-																$aeroport_aller=$row[1];
-																$aeroport_arrivee=$row[3];
-																$ville_depart=$row[2];
-																$ville_arrivee=$row[4];
-																$heure_depart=$row[6];
-																$heure_arrivee=$row[7];
-																$date_emission=$row[0];
-																$prix=$row[5];
-																$res->free();
-															} 
-															else {
-																if ($mysqli->errno) {
-																	echo "Echec de STORE : (" . $mysqli->errno . ") " . $mysqli->error;
-																}
-															}	
-														echo "<p class='item-name'>Départ : ".$result3[3]." à ".$result4[3]." de l'aéroport ".$aeroport_aller." ( ".$ville_depart." ).</p>";
-														echo "<p class='item-name'>Arrivée : ".$result3[3]." à ".$result4[4]." à l'aéroport ".$aeroport_arrivee." ( ".$ville_arrivee." ).</p>";
-														echo "</div>";
-														echo "</div>";
-
-												}
-											}
-											}while ($mysqli->more_results() && $mysqli->next_result());
-											}
-										}
+								if ($res = $mysqli->store_result()) {
+								$arrayResult= $res->fetch_all();
+								$row=$arrayResult[0];
+								$aeroport_aller=$row[1];
+								$aeroport_arrivee=$row[3];
+								$ville_depart=$row[2];
+								$ville_arrivee=$row[4];
+								$heure_depart=$row[6];
+								$heure_arrivee=$row[7];
+								$date_emission=$row[0];
+								$prix=$row[5];
+								$res->free();
+								} 
+								echo "<p>Départ : '$heure_depart' de l'aéroport '$aeroport_aller' ( '$ville_depart' ).</p>";
+								echo "<p>Arrivée : '$heure_arrivee' à l'aéroport '$aeroport_arrivee' ( '$ville_arrivee' ).</p>";
+                                echo "</div></section>";
+                            }
+						}
+                        }while ($mysqli->more_results() && $mysqli->next_result());
+                        echo "</div>";
+						}}
 				?>
                 <!-- /Article -->
             </div>

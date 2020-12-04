@@ -39,7 +39,8 @@
             <?php
 				$depart = $_GET['villesDepart'];
 				$arrivee = $_GET['villesArrivee'];
-				$datealler = $_GET['datealler'];
+                $datealler = $_GET['datealler'];
+                $idUser =$_GET['idUser'];
 				$mysqli = new mysqli("db", "root", "root", "bd");
 				 
 				if (!$res=$mysqli->multi_query("CALL mon_vol('$depart','$arrivee','$datealler')")) {
@@ -61,7 +62,7 @@
 							echo "<p>Aéroport Destination : $result[1]</p>";
 							echo "<p>Heure Départ : $result[3]</p>";
 							echo "<p>Heure Arrivée : $result[4]</p>";
-							echo "<form method='post'><button class='selectvol' type='submit' name='submit'><a href='paiement.php?idDepart=$result[5]&depart=$depart&arrivee=$arrivee'>Sélectionner ce vol</a></button></form>";
+							echo "<form method='post'><button class='selectvol' type='submit' name='submit'><a href='paiement.php?idDepart=$result[5]&depart=$depart&arrivee=$arrivee&idUser=$idUser'>Sélectionner ce vol</a></button></form>";
 							echo "</div></section>";
 						}
 						
