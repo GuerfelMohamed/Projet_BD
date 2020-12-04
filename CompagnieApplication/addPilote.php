@@ -5,10 +5,10 @@
 				$nom=$_POST['nom'];
 				$prenom=$_POST['prenom'];
 				$adresse=$_POST['adresse'];
-				$salaire=intval($_POST['salaire']);
-				$heureVol=intval($_POST['heureVol']);
-				$numSS=intval($_POST['numSS']);
-				$numLi=intval($_POST['numLi']);
+				$salaire=$_POST['salaire'];
+				$heureVol=$_POST['heureVol'];
+				$numSS=$_POST['numSS'];
+				$numLi=$_POST['numLi'];
 				$mysqli = new mysqli("db", "root", "root", "bd");
 				if (!$res=$mysqli->multi_query("insert into pilote values('$numSS', '$numLi', '$heureVol', '$prenom', '$nom', '$adresse', '$salaire')"))
 		 		{
@@ -19,7 +19,11 @@
 				{
 					header('location: http://localhost:8001/adminView.php');
 				}
-			}}
+            }
+            else{
+                echo "<center><p><b>ERROR:if thaniya </b></p></center>";
+
+            }}
 	?>
 <html lang="en">
 
@@ -73,7 +77,7 @@
                         </div>
                         <div class="col-6 col-12-xsmall">
                             <label style="text-align: left;">Prénom :</label>
-                            <input type="text" name="pernom" id="prenom" value="" placeholder="prenom" />
+                            <input type="text" name="prenom" id="prenom" value="" placeholder="prenom" />
                         </div>
                         <div class="col-12">
                             <label style="text-align: left;">Adresse :</label>

@@ -1,14 +1,13 @@
 <?php
     if (isset($_POST['submit'])){
-        if (isset($_POST['num']) and isset($_POST['db']) and isset($_POST['fn'])and isset($_POST['hd'])and isset($_POST['ha'])and isset($_POST['numa'])){
+        if (isset($_POST['num']) and isset($_POST['nomD']) and isset($_POST['codeD'])and isset($_POST['nomA'])and isset($_POST['codeA'])){
         $num=intval($_POST['num']);
-        $db=$_POST['db'];
-        $fn=$_POST['fn'];
-        $hd=$_POST['hd'];
-        $ha=$_POST['ha'];
-        $numa=intval($_POST['numa']);
+        $nomD=$_POST['nomD'];
+        $codeD=$_POST['codeD'];
+        $nomA=$_POST['nomA'];
+        $codeA=$_POST['codeA'];
     $mysqli = new mysqli("db", "root", "root", "bd");
-    if (!$res=$mysqli->multi_query("insert into vol values('$num','$db','$fn','$hd','$ha','$numa)")) 
+    if (!$res=$mysqli->multi_query("insert into vol_aeroport values('$num','$nomD','$codeD','$nomA','$codeA')")) 
     {  
         echo "<center><p><b>ERROR:' . $mysqli->error' </b></p></center>";
     }
@@ -73,7 +72,7 @@
 											echo  "<option>Numéro vol</option>";
 											while($row = mysqli_fetch_row($result))
 											{
-											echo  "<option value =".$row[0].">$row[0]</option>";
+											echo  "<option value ='$row[0]'>$row[0]</option>";
 											}
 									?>
                                 </select>
@@ -91,7 +90,7 @@
 											echo  "<option>Numéro vol</option>";
 											while($row = mysqli_fetch_row($result))
 											{
-											echo  "<option value =".$row[0].">$row[0]</option>";
+											echo  "<option value ='$row[0]'>$row[0]</option>";
 											}
 									?>
                                 </select>
@@ -109,7 +108,7 @@
 											echo  "<option>Code aéroport de départ</option>";
 											while($row = mysqli_fetch_row($result))
 											{
-											echo  "<option value =".$row[0].">$row[0]</option>";
+											echo  "<option value ='$row[0]'>$row[0]</option>";
 											}
 									?>
                             </select>
@@ -119,7 +118,7 @@
                             <label style="text-align: left;">Nom Aéroport d'arrivée<span
                                     style="colo:red;">*</span></label>
                             <div class="select">
-                                <select name="nomD">
+                                <select name="nomA">
                                     <?php 
 											$mysqli = new mysqli("db", "root", "root", "bd");
 														if ($mysqli->connect_errno) {
@@ -128,7 +127,7 @@
 											echo  "<option>Numéro vol</option>";
 											while($row = mysqli_fetch_row($result))
 											{
-											echo  "<option value =".$row[0].">$row[0]</option>";
+											echo  "<option value ='$row[0]'>$row[0]</option>";
 											}
 									?>
                                 </select>
@@ -147,7 +146,7 @@
 											echo  "<option>Code aéroport d'arrivée </option>";
 											while($row = mysqli_fetch_row($result))
 											{
-											echo  "<option value =".$row[0].">$row[0]</option>";
+											echo  "<option value ='$row[0]'>$row[0]</option>";
 											}
 									?>
                             </select>

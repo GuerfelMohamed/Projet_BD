@@ -79,7 +79,7 @@ INSERT INTO passager VALUES ('x12345','touhami','ben ali','lyon',NULL);
 /*Table structure for table 'vol'*/
 DROP TABLE IF EXISTS vol;
 CREATE TABLE vol (
-  numero_vol int(11) NOT NULL,
+  numero_vol int(11) NOT NULL AUTO_INCREMENT,
   debut_periode date NOT NULL,
   fin_periode date NOT NULL,
   heure_depart time NOT NULL,
@@ -90,13 +90,13 @@ CREATE TABLE vol (
   CONSTRAINT num_inmatriculation FOREIGN KEY (numero_inmatriculation) REFERENCES avion (numero_immatriculation)
 );
 
-INSERT INTO vol VALUES (1,'2020-11-01','2020-12-01','08:30:00','09:45:00','N12345'),(2,'2020-11-01','2020-12-01','18:30:00','19:45:00','N12360'),(3,'2020-11-01','2020-12-01','12:30:00','14:00:00','G62345');
+INSERT INTO vol (debut_periode,fin_periode,heure_depart,heure_arrivee,numero_inmatriculation) VALUES ('2020-11-01','2020-12-01','08:30:00','09:45:00','N12345'),('2020-11-01','2020-12-01','18:30:00','19:45:00','N12360'),('2020-11-01','2020-12-01','12:30:00','14:00:00','G62345');
 
 
 /*Table structure for table 'depart'*/
 DROP TABLE IF EXISTS depart;
 CREATE TABLE depart (
-  id_depart int(11) NOT NULL,
+  id_depart int(11) NOT NULL AUTO_INCREMENT,
   place_libre int(11) DEFAULT NULL,
   place_occupee int(11) DEFAULT NULL,
   date_depart date NOT NULL,
@@ -107,7 +107,6 @@ CREATE TABLE depart (
   CONSTRAINT numero_vol FOREIGN KEY (numero_vol) REFERENCES vol (numero_vol) ON DELETE CASCADE
 );
 INSERT INTO depart VALUES (1,178,2,'2020-11-01',1,100),(2,0,180,'2020-11-08',1,105),(3,180,0,'2020-11-15',1,95),(4,180,0,'2020-11-22',1,97),(5,180,0,'2020-11-29',1,102),(6,180,0,'2020-12-01',2,90),(7,180,0,'2020-12-08',2,95),(8,180,0,'2020-12-15',2,98),(9,180,0,'2020-12-22',2,95),(10,180,0,'2020-12-29',2,100),(11,180,0,'2021-01-01',3,105),(12,180,0,'2021-01-08',3,105),(13,180,0,'2021-01-15',3,95),(14,180,0,'2021-01-22',3,98),(15,180,0,'2021-01-29',3,92);
-
 
 /*Table structure for table 'billet'*/
 DROP TABLE IF EXISTS billet;

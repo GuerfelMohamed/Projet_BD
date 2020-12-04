@@ -1,21 +1,20 @@
 <?php
-	if (isset($_POST['submit'])){
-		if ( isset($_POST['db']) and isset($_POST['fn'])and isset($_POST['hd'])and isset($_POST['ha'])and isset($_POST['numa'])){
-		$db=$_POST['db'];
-		$fn=$_POST['fn'];
-		$hd=$_POST['hd'];
-		$ha=$_POST['ha'];
-		$numa=($_POST['numa']);
-	$mysqli = new mysqli("db", "root", "root", "bd");
-    if (!$res=$mysqli->multi_query("insert into vol (debut_periode,fin_periode,heure_depart,heure_arrivee,numero_inmatriculation)
-                                     values('$db','$fn','$hd','$ha','$numa')")) 
-	{
-		echo "<center><p><b>ERRORR:' . $mysqli->error' </b></p></center>";
-	}
-	else{
-		header('location: http://localhost:8001/adminView.php');
-	}
-	}}
+    if (isset($_POST['submit'])){
+        if (isset($_POST['num_vol']) and isset($_POST['db']) and isset($_POST['pl'])and isset($_POST['prix'])){
+        $num_vol=intval($_POST['num_vol']);
+        $db=$_POST['db'];
+        $pl=$_POST['pl'];
+        $prix=$_POST['prix'];
+    $mysqli = new mysqli("db", "root", "root", "bd");
+    if (!$res=$mysqli->multi_query("insert into depart (place_libre, place_occupee, date_depart, numero_vol, prix) 
+                                    values ('$pl',0,'$db','$num_vol','$prix')")) 
+    {  
+        echo "<center><p><b>ERROR:' . $mysqli->error' </b></p></center>";
+    }
+    else{
+        header('location: http://localhost:8001/adminView.php');
+    }
+    }}
 ?>
 <html lang="en">
 
@@ -58,50 +57,41 @@
     <section id="main" class="wrapper">
         <div class="inner">
             <div class="content">
-
-
-                <h3 style="color:red; text-align: center;">Ajouter un nouveau vol</h3>
-
+                <h3 style="color:red; text-align: center;">Ajouter un départ</h3>
                 <form method="post">
                     <div class="row gtr-uniform">
                         <div class="col-6 col-12-xsmall">
-                            <label style="text-align: left;">Début période</label>
-                            <input type="date" required="required" name="db" value="" placeholder="Début période">
-                        </div>
-                        <div class="col-6 col-12-xsmall">
-                            <label style="text-align: left;">Fin période<span style=" color:red;">*</span></label>
-                            <input type="date" required="required" name="fn" value="" placeholder="Fin période">
-                        </div>
-
-                        <div class="col-6 col-12-xsmall">
-                            <label style="text-align: left;">Heure de départ<span style="color:red;">*</span></label>
-                            <input type="time" required="required" name="hd" value="" placeholder="Heure de départ">
-                        </div>
-
-                        <div class="col-6 col-12-xsmall">
-                            <label style="text-align: left;">Heure d'arrivée<span style="color:red;">*</span></label>
-                            <input type="time" required="required" name="ha" value="" placeholder="Heure d'arrivée">
-                        </div>
-
-                        <div class="col-12">
-                            <label style="text-align: left;">Numéro immatriculation de l'avion<span
-                                    style="color:red;">*</span></label>
+                            <label style="text-align: left;">Numéro vol</label>
                             <div class="select">
-                                <select name="numa">
+                                <select name="num_vol">
                                     <?php 
 											$mysqli = new mysqli("db", "root", "root", "bd");
-												if ($mysqli->connect_errno) {
-                                                    echo "<center><p><b>ERROR:' . $mysqli->error' </b></p></center>";
-                                                }
-											$result=$mysqli->query("select distinct numero_immatriculation from avion;");
-											echo  "<option>Numéro immatriculation avion</option>";
+														if ($mysqli->connect_errno) {
+                                                            echo "<center><p><b>ERROR:' . $mysqli->error' </b></p></center>";											}
+											$result=$mysqli->query("select distinct numero_vol from vol;");
+											echo  "<option>Numéro vol</option>";
 											while($row = mysqli_fetch_row($result))
 											{
-											echo  "<option value ='$row[0]'>'$row[0]'</option>";
+											echo  "<option value ='$row[0]'>$row[0]</option>";
 											}
 									?>
                                 </select>
                             </div>
+                        </div>
+
+                        <div class="col-6 col-12-xsmall">
+                            <label style="text-align: left;">Date de départ</label>
+                            <input type="date" required="required" name="db" value="" placeholder="date de départ">
+                        </div>
+
+                        <div class="col-6 col-12-xsmall">
+                            <label style="text-align: left;">Nombre de places</label>
+                            <input type="text" required="required" name="pl" value="" placeholder="nombre de places">
+                        </div>
+                        <div class="col-6 col-12-xsmall">
+                            <label style="text-align: left;">Prix</label>
+                            <input type="text" required="required" name="prix" value="" placeholder="prix de billet">
+
                         </div>
 
                         <div>
@@ -113,11 +103,9 @@
                     </div>
                 </form>
 
-
             </div>
         </div> <!-- /container -->
     </section>
-
 
     <!-- Footer -->
     <footer id="footer">

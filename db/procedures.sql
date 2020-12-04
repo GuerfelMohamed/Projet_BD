@@ -1,34 +1,6 @@
 use bd;
 /*Procedures a ajouter*/
 
-/*Ajouter avion*/
-DELIMITER $$
-$$ 
-DROP procedure if exists ajouter_avion$$
-CREATE PROCEDURE ajouter_avion(IN numero_immatriculation varchar(10), IN type_avion varchar(10))
-BEGIN
-insert into avion values(numero_immatriculation,type_avion);
-END
-$$
-
-/*Ajouter vol à un aeroport*/
-DELIMITER $$
-$$ 
-DROP procedure if exists ajouter_vol_aeroport$$
-CREATE PROCEDURE ajouter_vol_aeroport(IN numero_vol INT, IN nom_aeroport_depart varchar(45),IN code_depart varchar(45),IN nom_aeroport_destination varchar(45),IN code_destination varchar(45))
-BEGIN
-insert into vol_aeroport values(numero_vol,nom_aeroport_depart,code_depart,nom_aeroport_destination,code_destination);
-END
-$$
-/*Ajouter un depart*/
-DELIMITER $$
-$$ 
-DROP procedure if exists ajouter_depart$$
-CREATE PROCEDURE ajouter_depart(IN id_depart INT, IN place_libre INT,IN date_depart date, IN numero_vol INT, IN prix INT)
-BEGIN
-insert into depart values(id_depart,place_libre,0,numero_vol,prix);
-END
-$$
  
 /*Affecter un pilote a un depart*/
 DELIMITER $$

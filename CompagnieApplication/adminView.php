@@ -303,6 +303,49 @@
                 <br></br>
                 <br></br>
                 <ul class="actions">
+                    <li><a href="addDepart.php" class="button primary icon fa-plus">Ajouter un départ</a></li>
+                </ul>
+                <table class="table-wrapper">
+                    <h3 style="color:red; text-align: center;">Tableau de départs </h3>
+                    <thead>
+                        <tr>
+                            <th>Place libre</th>
+                            <th>Place occupée</th>
+                            <th>Date de départ</th>
+                            <th>Numéro de vol</th>
+                            <th>prix</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php 
+					$mysqli = new mysqli("db", "root", "root", "bd");
+					$result=$mysqli->multi_query("select * from depart;");
+					do {
+					if ($result = $mysqli->store_result()) {
+						$arrayResult= $result->fetch_all();
+						foreach($arrayResult as $row){
+						$pl=$row[1];
+						$pc=$row[2];
+						$db=$row[3];
+						$Num_vol=$row[4];
+						$prix=$row[5];
+						echo " <tr>
+							<td>$pl</td>
+							<td>$pc</td>
+							<td>$db</td>
+							<td>$Num_vol</td>
+							<td>$prix</td>
+						</tr>";}
+
+					}
+					}while ($mysqli->more_results() && $mysqli->next_result());
+					?>
+                    </tbody>
+                </table>
+
+                <br></br>
+                <br></br>
+                <ul class="actions">
                     <li><a href=" addLiaison.php" class="button primary icon fa-plus">Ajouter laison</a></li>
                 </ul>
                 <table class="table-wrapper">
