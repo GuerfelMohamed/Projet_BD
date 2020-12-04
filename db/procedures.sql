@@ -85,7 +85,7 @@ From vol inner join depart using (numero_vol) inner join vol_aeroport using (num
 Where place_libre>0 and 
       date_depart>=date_voyage and 
       numero_vol in (select numero_vol 
-					 from vol_aeroport inner join (aeroports_departs cross join aeroports_destinations) using (nom_aeroport_depart,nom_aeroport_destination));
+					 from vol_aeroport inner join (Aeroports_departs cross join Aeroports_destinations) using (nom_aeroport_depart,nom_aeroport_destination));
 END 
 $$
 

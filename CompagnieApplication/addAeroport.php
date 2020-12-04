@@ -73,7 +73,12 @@
                                 placeholder="ville" />
                         </div>
 
-
+                        <div>
+                            <ul class="actions">
+                                <li><input type="submit" name="submit" value="Enregistrer" class="primary" /></li>
+                                <li><input type="reset" value="Reset" /></li>
+                            </ul>
+                        </div>
                     </div>
                 </form>
 

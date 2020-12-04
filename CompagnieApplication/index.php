@@ -1,213 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
 
-	<head>
-		<title>Industrious by TEMPLATED</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<meta name="description" content="" />
-		<meta name="keywords" content="" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body class="is-preload">
+<head>
+    <title>Avianav</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/bootstrap.css" />
+</head>
 
-		<!-- Header -->
-		<header id="header">
-				<a class="logo" href="index.php">Avianav</a>
-				<nav>
-					<a href="#menu">Menu</a>
-				</nav>
-			</header>
+<body class="is-preload">
 
-		<!-- Nav -->
-			<nav id="menu">
-				<ul class="links">
-					<li><a href="index.php">Home</a></li>
-					<li><a href="about.html">About us</a></li>
-					<li><a href="rechercher.php">Réservation de billet</a></li>
-					<li><a href="signin.php">Connexion</a></li>
-					<li><a href="signup.php">S'inscrire</a></li>
-					<li><a href="contact.html">Contacter nous</a></li>
-				</ul>
-			</nav>
+    <!-- Header -->
+    <header id="header">
+        <a class="logo" href="index.php">Avianav</a>
+        <nav>
+            <a href="#menu">Menu</a>
+        </nav>
+    </header>
 
-		<!-- Banner -->
-			<section id="banner">
-				<div class="inner">
-					<h1>Industrious</h1>
-					<p>A responsive business oriented template with a video background<br />
-					designed by <a href="https://templated.co/">TEMPLATED</a> and released under the Creative Commons License.</p>
-				</div>
-				<video autoplay loop muted playsinline src="images/banner.mp4"></video>
-			</section>
-	
-		
-		
-			<!-- Highlights -->
-			<section class="wrapper">
-				<div class="inner">
-					<header class="special">
-						<h2>Vol pas cher à des destinations touristiques</h2>
-						<p>Que vous ayez envie de partir pour un voyage d’affaire, ou pour changer d’air, Avianav assure de nombreux vols pas chers à plusieurs destination touristiques et au départ de plus de 130 aéroports répartis sur plus de 30 pays notant Paris, Nice, Marseille, Lyon, Munich, Berlin, Moscou, Stockholm….</p>
-					</header>
-					<div class="highlights">
-						<section>
-							<div class="content">
-								<header>
-									<a href="#" class="icon fa-vcard-o"><span class="label">Icon</span></a>
-									<h3>Feugiat consequat</h3>
-								</header>
-								<p>Nunc lacinia ante nunc ac lobortis ipsum. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus.</p>
-							</div>
-						</section>
-						<section>
-							<div class="content">
-								<header>
-									<a href="#" class="icon fa-files-o"><span class="label">Icon</span></a>
-									<h3>Ante sem integer</h3>
-								</header>
-								<p>Nunc lacinia ante nunc ac lobortis ipsum. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus.</p>
-							</div>
-						</section>
-						<section>
-							<div class="content">
-								<header>
-									<a href="#" class="icon fa-floppy-o"><span class="label">Icon</span></a>
-									<h3>Ipsum consequat</h3>
-								</header>
-								<p>Nunc lacinia ante nunc ac lobortis ipsum. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus.</p>
-							</div>
-						</section>
-						<section>
-							<div class="content">
-								<header>
-									<a href="#" class="icon fa-line-chart"><span class="label">Icon</span></a>
-									<h3>Interdum gravida</h3>
-								</header>
-								<p>Nunc lacinia ante nunc ac lobortis ipsum. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus.</p>
-							</div>
-						</section>
-						<section>
-							<div class="content">
-								<header>
-									<a href="#" class="icon fa-paper-plane-o"><span class="label">Icon</span></a>
-									<h3>Faucibus consequat</h3>
-								</header>
-								<p>Nunc lacinia ante nunc ac lobortis ipsum. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus.</p>
-							</div>
-						</section>
-						<section>
-							<div class="content">
-								<header>
-									<a href="#" class="icon fa-qrcode"><span class="label">Icon</span></a>
-									<h3>Accumsan viverra</h3>
-								</header>
-								<p>Nunc lacinia ante nunc ac lobortis ipsum. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus.</p>
-							</div>
-						</section>
-					</div>
-				</div>
-			</section>
-	<!-- /Highlights -->
+    <!-- Nav -->
+    <nav id="menu">
+        <ul class="links">
+            <li><a href="index.php">Home</a></li>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="rechercher.php">Réservation de billet</a></li>
+            <li><a href="signin.php">Connexion</a></li>
+            <li><a href="signup.php">S'inscrire</a></li>
+            <li><a href="contact.html">Contacter nous</a></li>
+        </ul>
+    </nav>
 
-	<!-- CTA -->
-	<section id="cta" class="wrapper">
-				<div class="inner">
-					<h2>Curabitur ullamcorper ultricies</h2>
-					<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing. Lorem ipsum dolor vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing sed feugiat eu faucibus. Integer ac sed amet praesent. Nunc lacinia ante nunc ac gravida.</p>
-				</div>
-			</section>
+    <!-- Banner -->
+    <section id="banner">
+        <div class="inner">
+            <h1>Welcome To Avianav</h1>
+        </div>
+        <video autoplay loop muted playsinline src="images/banner.mp4"></video>
+    </section>
 
-		<!-- Testimonials -->
-			<section class="wrapper">
-				<div class="inner">
-					<header class="special">
-						<h2>Faucibus consequat lorem</h2>
-						<p>In arcu accumsan arcu adipiscing accumsan orci ac. Felis id enim aliquet. Accumsan ac integer lobortis commodo ornare aliquet accumsan erat tempus amet porttitor.</p>
-					</header>
-					<div class="testimonials">
-						<section>
-							<div class="content">
-								<blockquote>
-									<p>Nunc lacinia ante nunc ac lobortis ipsum. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus.</p>
-								</blockquote>
-								<div class="author">
-									<div class="image">
-										<img src="images/pic01.jpg" alt="" />
-									</div>
-									<p class="credit">- <strong>Jane Doe</strong> <span>CEO - ABC Inc.</span></p>
-								</div>
-							</div>
-						</section>
-						<section>
-							<div class="content">
-								<blockquote>
-									<p>Nunc lacinia ante nunc ac lobortis ipsum. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus.</p>
-								</blockquote>
-								<div class="author">
-									<div class="image">
-										<img src="images/pic03.jpg" alt="" />
-									</div>
-									<p class="credit">- <strong>John Doe</strong> <span>CEO - ABC Inc.</span></p>
-								</div>
-							</div>
-						</section>
-						<section>
-							<div class="content">
-								<blockquote>
-									<p>Nunc lacinia ante nunc ac lobortis ipsum. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus.</p>
-								</blockquote>
-								<div class="author">
-									<div class="image">
-										<img src="images/pic02.jpg" alt="" />
-									</div>
-									<p class="credit">- <strong>Janet Smith</strong> <span>CEO - ABC Inc.</span></p>
-								</div>
-							</div>
-						</section>
-					</div>
-				</div>
-			</section>
 
-		<!-- Footer -->
-			<footer id="footer">
-				<div class="inner">
-					<div class="content">
-						<section>
-							<h3>Accumsan montes viverra</h3>
-							<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing. Lorem ipsum dolor vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing sed feugiat eu faucibus. Integer ac sed amet praesent. Nunc lacinia ante nunc ac gravida.</p>
-						</section>
-						<section>
-							<h4>Sem turpis amet semper</h4>
-							<ul class="alt">
-								<li><a href="#">Dolor pulvinar sed etiam.</a></li>
-								<li><a href="#">Etiam vel lorem sed amet.</a></li>
-								<li><a href="#">Felis enim feugiat viverra.</a></li>
-								<li><a href="#">Dolor pulvinar magna etiam.</a></li>
-							</ul>
-						</section>
-						<section>
-							<h4>Magna sed ipsum</h4>
-							<ul class="plain">
-								<li><a href="#"><i class="icon fa-twitter">&nbsp;</i>Twitter</a></li>
-								<li><a href="#"><i class="icon fa-facebook">&nbsp;</i>Facebook</a></li>
-								<li><a href="#"><i class="icon fa-instagram">&nbsp;</i>Instagram</a></li>
-								<li><a href="#"><i class="icon fa-github">&nbsp;</i>Github</a></li>
-							</ul>
-						</section>
-					</div>
-					<div class="copyright">
-						&copy; Untitled. Photos <a href="https://unsplash.co">Unsplash</a>, Video <a href="https://coverr.co">Coverr</a>.
-					</div>
-				</div>
-			</footer>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+    <!-- Highlights -->
+    <section class="wrapper">
+        <div class="inner">
+            <header class="special">
+                <h2>Vol pas cher à des destinations touristiques</h2>
+                <p>Que vous ayez envie de partir pour un voyage d’affaire, ou pour changer d’air, Avianav assure de
+                    nombreux vols pas chers à plusieurs destination touristiques et au départ de plus de 130 aéroports
+                    répartis sur plus de 30 pays notant Paris, Nice, Marseille, Lyon, Munich, Berlin, Moscou,
+                    Stockholm….</p>
+            </header>
+            <div class="highlights">
+                <section>
+                    <div class="card" style="width: 25rem;">
+                        <img class="card-img-top" src="images/pic01.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text">Les bonnes idées de voyage ne manquent pas sur les destinations
+                                desservies par Avianav</p>
+                            <a style="color:red;" href="rechercher.php">Trouvez votre destination idéale</a>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="card" style="width: 25rem;">
+                        <img class="card-img-top" src="images/pic02.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text">Découvrez le lieu idéal pour votre prochain week-end ou vos prochaines
+                                vacances !</p>
+                            <a style="color:red;" href="rechercher.php">Trouvez votre destination idéale</a>
 
-	</body>
-	</html>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="card" style="width: 25rem;">
+                        <img class="card-img-top" src="images/pic03.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text">Les bonnes idées de voyage ne manquent pas sur les destinations
+                                desservies par Avianav
+                            </p>
+                            <a style="color:red;" href="rechercher.php">Trouvez votre destination idéale</a>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="content">
+                        <header>
+                            <a style="color:red;" style="color:red;" href="#" class="icon fa-line-chart"><span
+                                    class="label">Icon</span></a>
+                            <h3>À propos Avianav</h3>
+                        </header>
+                        <a style="color:red;" href="about.html">Lire à propos Avianav</a>
+                    </div>
+                </section>
+                <section>
+                    <div class="content">
+                        <header>
+                            <a style="color:red;" href="#" class="icon fa-paper-plane-o"><span
+                                    class="label">Icon</span></a>
+                            <h3>Contacter Avianav</h3>
+                        </header>
+                        <a style="color:red;" href="contact.html">Besoin de nous contacter ?</a>
+                    </div>
+                </section>
+                <section>
+                    <div class="content">
+                        <header>
+                            <a style="color:red;" href="#" class="icon fa fa-user-circle"><span
+                                    class="label">Icon</span></a>
+                            <br></br>
+                            <h3>Devenir un client</h3>
+                        </header>
+                        <a style="color:red;" href="signin.php">Créer un compte chez Avianav</a>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+    <!-- /Highlights -->
+
+    <!-- CTA -->
+    <section id="cta" class="wrapper">
+        <div class="inner">
+            <h2>Aviana, la destination qui vous convient !</h2>
+            <p>Chez Avinanv, vous pouvez effectuer des recherches approfondies avec comme critères de choix : votre
+                budget, votre aéroport de départ et la durée de votre voyage par exemple. C’est le moment de faire vos
+                recherches pour passer des vacances bien méritées !</p>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+            <div class="content">
+                <section>
+                    <h3>Service Relation Clientèle</h3>
+                    <p>Nous sommes à votre écoute 24h/24, 7j/7 sur Messenger, Facebook et Twitter pour faciliter
+                        votre voyage. Nous vous aidons où que vous soyez</p>
+                </section>
+                <section>
+                    <ul class="alt">
+                        <li><a href="index.php">Accueil</a></li>
+                        <li><a href="about.html"></a>Informations</li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </section>
+                <section>
+                    <h4>Visitez nos réseaux sociaux</h4>
+                    <ul class="plain">
+                        <li><a href="#"><i class="icon fa-twitter">&nbsp;</i>Twitter</a></li>
+                        <li><a href="#"><i class="icon fa-facebook">&nbsp;</i>Facebook</a></li>
+                        <li><a href="#"><i class="icon fa-instagram">&nbsp;</i>Instagram</a></li>
+                        <li><a href="#"><i class="icon fa-github">&nbsp;</i>Github</a></li>
+                    </ul>
+                </section>
+            </div>
+            <div class="copyright">
+                &copy; 2020, CentraleAir. Designed by<a href="https://unsplash.co">Groupe Centrale</a>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

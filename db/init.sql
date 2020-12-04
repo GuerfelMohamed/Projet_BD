@@ -34,7 +34,7 @@ CREATE TABLE utilisateur (
   PRIMARY KEY (idUtilisateur),
   UNIQUE KEY email_UNIQUE (email)
 );
-INSERT INTO utilisateur VALUES (3,'sanchez','paco','paco@gmail.com','papa'),(4,'sojo','luis','luis@gmail.com','lulu'),(5,'perez','manu','manu@gmail.com','mama');
+INSERT INTO utilisateur VALUES (3,'med','guer','med@gmail.com','medmed'),(4,'mejdi','merr','mejdi@gmail.com','meme'),(5,'saleh','ali','saleh@gmail.com','sasa');
 
 /* Table structure for table 'roles' */
 
@@ -73,7 +73,7 @@ CREATE TABLE passager (
   KEY ID_utilisateur_idx (IdUtilisateur),
   CONSTRAINT ID_utilisateur FOREIGN KEY (IdUtilisateur) REFERENCES utilisateur (idUtilisateur)
 );
-INSERT INTO passager VALUES ('x12345','Paco','Gonzalez','Malaga',NULL);
+INSERT INTO passager VALUES ('x12345','touhami','ben ali','lyon',NULL);
 
 
 /*Table structure for table 'vol'*/
@@ -90,7 +90,7 @@ CREATE TABLE vol (
   CONSTRAINT num_inmatriculation FOREIGN KEY (numero_inmatriculation) REFERENCES avion (numero_immatriculation)
 );
 
-INSERT INTO vol VALUES (1,'2019-01-01','2019-02-01','08:30:00','09:45:00','N12345'),(2,'2019-01-01','2019-02-01','18:30:00','19:45:00','N12360'),(3,'2019-01-01','2019-02-01','12:30:00','14:00:00','G62345');
+INSERT INTO vol VALUES (1,'2020-11-01','2020-12-01','08:30:00','09:45:00','N12345'),(2,'2020-11-01','2020-12-01','18:30:00','19:45:00','N12360'),(3,'2020-11-01','2020-12-01','12:30:00','14:00:00','G62345');
 
 
 /*Table structure for table 'depart'*/
@@ -106,7 +106,7 @@ CREATE TABLE depart (
   KEY numero_vol_idx (numero_vol),
   CONSTRAINT numero_vol FOREIGN KEY (numero_vol) REFERENCES vol (numero_vol)
 );
-INSERT INTO depart VALUES (1,178,2,'2019-01-01',1,100),(2,0,180,'2019-01-08',1,105),(3,180,0,'2019-01-15',1,95),(4,180,0,'2019-01-22',1,97),(5,180,0,'2019-01-29',1,102),(6,180,0,'2019-01-01',2,90),(7,180,0,'2019-01-08',2,95),(8,180,0,'2019-01-15',2,98),(9,180,0,'2019-01-22',2,95),(10,180,0,'2019-01-29',2,100),(11,180,0,'2019-01-01',3,105),(12,180,0,'2019-01-08',3,105),(13,180,0,'2019-01-15',3,95),(14,180,0,'2019-01-22',3,98),(15,180,0,'2019-01-29',3,92);
+INSERT INTO depart VALUES (1,178,2,'2020-11-01',1,100),(2,0,180,'2020-11-08',1,105),(3,180,0,'2020-11-15',1,95),(4,180,0,'2020-11-22',1,97),(5,180,0,'2020-11-29',1,102),(6,180,0,'2020-12-01',2,90),(7,180,0,'2020-12-08',2,95),(8,180,0,'2020-12-15',2,98),(9,180,0,'2020-12-22',2,95),(10,180,0,'2020-12-29',2,100),(11,180,0,'2021-01-01',3,105),(12,180,0,'2021-01-08',3,105),(13,180,0,'2021-01-15',3,95),(14,180,0,'2021-01-22',3,98),(15,180,0,'2021-01-29',3,92);
 
 
 /*Table structure for table 'billet'*/

@@ -1,211 +1,154 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-		<title>Industrious by TEMPLATED</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<meta name="description" content="" />
-		<meta name="keywords" content="" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-
-<body class="is-preload">
-		<!-- Header -->
-		<header id="header">
-				<a class="logo" href="index.php">Avianav</a>
-				<nav>
-					<a href="#menu">Menu</a>
-				</nav>
-			</header>
-
-		<!-- Nav -->
-			<nav id="menu">
-				<ul class="links">
-					<li><a href="index.php">Home</a></li>
-					<li><a href="about.html">About us</a></li>
-					<li><a href="rechercher.php">Réservation de billet</a></li>
-					<li><a href="signin.php">Connexion</a></li>
-					<li><a href="signup.php">S'inscrire</a></li>
-					<li><a href="contact.html">Contacter nous</a></li>
-				</ul>
-			</nav>
-<?php
-		function debug_to_console($data) {
-			$output = $data;
-			if (is_array($output))
-				$output = implode(',', $output);
-
-			echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
-		}
-?>
 <?php
 if (isset($_POST['submit'])){
-	if (isset($_POST['nom']) and isset($_POST['prenom'])and isset($_POST['email'])and isset($_POST['passWord'])and isset($_POST['passWordConf'])){	
-	$mysqli = new mysqli("db", "root", "root", "bd");
-			$nom=$_POST['nom'];
-			$prenom=$_POST['prenom'];
-			$email=$_POST['email'];
-			$password=$_POST['passWord'];
-				if (!$resInsert=$mysqli->multi_query("CALL nouvel_utilisateur('$nom','$prenom','$email','$password',10)")) {
-					echo "Echec lors de l'appel à la procédure stockée : (" . $mysqli->errno . ") " . $mysqli->error;
-}
-header("location: http://localhost:8001/CompagnieApplication/confirmationcompte.php?mail=$email&nom=$nom");
-}}
-			?>
+	if (isset($_POST['nom']) and isset($_POST['prenom'])and isset($_POST['email'])and isset($_POST['passWord'])and isset($_POST['passWordConf']))
+	{	
+		$mysqli = new mysqli("db", "root", "root", "bd");
+		$nom=$_POST['nom'];
+		$prenom=$_POST['prenom'];
+		$email=$_POST['email'];
+		$password=$_POST['passWord'];
+		if (!$resInsert=$mysqli->multi_query("CALL nouvel_utilisateur('$nom','$prenom','$email','$password',10)")) {
+			echo "<center><p><b>ERROR:' . $mysqli->error' </b></p></center>";
+		}
+		else{
+			header("location: http://localhost:8001/confirmationcompte.php?mail=$email&nom=$nom");
+		}
+	}}
+?>
+<html lang="en">
+
+<head>
+    <title>Avianav</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+
+<body class="is-preload">
+    <!-- Header -->
+    <header id="header">
+        <a class="logo" href="index.php">Avianav</a>
+        <nav>
+            <a href="#menu">Menu</a>
+        </nav>
+    </header>
+
+    <!-- Nav -->
+    <nav id="menu">
+        <ul class="links">
+            <li><a href="index.php">Home</a></li>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="rechercher.php">Réservation de billet</a></li>
+            <li><a href="signin.php">Connexion</a></li>
+            <li><a href="contact.html">Contacter nous</a></li>
+        </ul>
+    </nav>
 
 
-	<header id="head" class="secondary"></header>
+    <div id="heading">
+        <h1>S'inscrire</h1>
+    </div>
 
-	<!-- container -->
-	<div class="container">
+    <section id="main" class="wrapper">
+        <div class="inner">
+            <div class="content">
 
 
-		<div class="row">
-			
-			<!-- Article main content -->
-			<article class="col-xs-12 maincontent">
-				<header class="page-header">
-					<h1 class="page-title">Enregistrement</h1>
-				</header>
-				
-				<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-					<div class="panel panel-default">
-						<div class="panel-body">
-							<h3 class="thin text-center">Enregistrer un nouveau compte</h3>
-							<p class="text-center text-muted">CRÉATION DE VOTRE COMPTE </p>
-							<hr>
 
-							<form  method="post">
-								<div class="top-margin">
-									<label>Nom</label>
-									<input type="text" name="nom" class="form-control">
-								</div>
-								<div class="top-margin">
-									<label>Prénom</label>
-									<input type="text" name="prenom" class="form-control">
-								</div>
-								<div class="top-margin">
-									<label>Email<span class="text-danger">*</span></label>
-									<input type="email" name="email" class="form-control">
-								</div>
+                <h3 style="color:red; text-align: center;">Enregistrer un nouveau compte</h3>
 
-								<div class="row top-margin">
-									<div class="col-sm-6">
-										<label>Mot de passe <span class="text-danger">*</span></label>
-										<input type="password" name="passWord" class="form-control">
-									</div>
-									<div class="col-sm-6">
-										<label>Confirmer votre mot de passe<span class="text-danger">*</span></label>
-										<input type="password" name="passWordConf" class="form-control">
-									</div>
-								</div>
+                <form method="post">
+                    <div class="row gtr-uniform">
+                        <div class="col-6 col-12-xsmall">
+                            <label style="text-align: left;">Nom</label>
+                            <input type="text" name="nom" value="" placeholder="nom">
+                        </div>
+                        <div class="col-6 col-12-xsmall">
+                            <label style="text-align: left;">Prénom</label>
+                            <input type="text" name="prenom" placeholder="prenom">
+                        </div>
+                        <div class="col-12">
+                            <label style="text-align: left;">Email<span style="color:red;">*</span></label>
+                            <input type="email" name="email" placeholder="prenom">
+                        </div>
 
-								<hr>
+                        <div class="col-12">
+                            <label style="text-align: left;">Mot de passe <span style="color:red;">*</span></label>
+                            <input type="password" name="passWord">
+                        </div>
+                        <div class="col-12">
+                            <label style="text-align: left;">Confirmer votre mot de passe<span
+                                    style="color:red;">*</span></label>
+                            <input type="password" name="passWordConf">
+                        </div>
 
-								<div class="row">
-									<div class="col-lg-8">
-										<label class="checkbox">
-											<input type="checkbox"> 
-											J'ai lu <a href="page_terms.html">les termes et conditions</a>
-										</label>                        
-									</div>
-									<div class="col-12">
-										<button class="button primary" name="submit" type="submit">Enregistrer</button>
-									</div>
-								</div>
-							</form>
-						</div>
-					</div>
 
-				</div>
-				
-			</article>
-			<!-- /Article -->
+                        <div class="row">
+                            <div class="col-6 col-12-xsmall">
+                                <input type="radio" name="checkbox" checked />
+                                <label>J'ai lu <a href="page_terms.html"> les termes et conditions</a> </label>
+                            </div>
 
-		</div>
-	</div>	<!-- /container -->
-	
+                            <div class="col-12">
+                                <ul class="actions">
+                                    <li><input type="submit" name="submit" value="S'inscrit" class="primary" /></li>
+                                    <li><input type="reset" value="Reset" /></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div> <!-- /container -->
+    </section>
 
-	<footer id="footer" class="top-space">
 
-		<div class="footer1">
-			<div class="container">
-				<div class="row">
-					
-					<div class="col-md-3 widget">
-						<h3 class="widget-title">Contact</h3>
-						<div class="widget-body">
-							<p>+33 1548598520<br>
-								<a href="mailto:#">centraleair@contact.com</a><br>
-								<br>
-								51 Chemin des Mouilles, Ecully 69130
-							</p>	
-						</div>
-					</div>
-
-					<div class="col-md-3 widget">
-						<h3 class="widget-title">Nous contacter</h3>
-						<div class="widget-body">
-							<p class="follow-me-icons">
-								<a href=""><i class="fa fa-twitter fa-2"></i></a>
-								<a href=""><i class="fa fa-dribbble fa-2"></i></a>
-								<a href=""><i class="fa fa-github fa-2"></i></a>
-								<a href=""><i class="fa fa-facebook fa-2"></i></a>
-							</p>	
-						</div>
-					</div>
-
-					<div class="col-md-6 widget">
-						<h3 class="widget-title">Service Relation Clientèle</h3>
-						<div class="widget-body">
-							<p>Nous sommes à votre écoute 24h/24, 7j/7 sur Messenger, Facebook et Twitter pour faciliter votre voyage. Nous vous aidons où que vous soyez ! #CentraleisintheAir</p>
-							<p>Visionnez les dernières vidéos de la chaîne YouTube CentraleAir on air.
-							Pinterest ou LinkedIn : quel que soit votre réseau préféré, dialoguez et partagez nos contenus avec d'autres internautes.</p>
-						</div>
-					</div>
-
-				</div> <!-- /row of widgets -->
-			</div>
-		</div>
-
-		<div class="footer2">
-			<div class="container">
-				<div class="row">
-					
-					<div class="col-md-6 widget">
-						<div class="widget-body">
-							<p class="simplenav">
-								<a href="index.php">Accueil</a> | 
-								<a href="about.html">Informations</a> |
-								<a href="contact.html">Contact</a> |
-								<b><a href="signup.php">S'inscrire</a></b>
-							</p>
-						</div>
-					</div>
-
-					<div class="col-md-6 widget">
-						<div class="widget-body">
-							<p class="text-right">
-								Copyright &copy; 2019, CentraleAir. Designed by <a href="http://gettemplate.com/" rel="designer">Groupe Centrale</a> 
-							</p>
-						</div>
-					</div>
-
-				</div> <!-- /row of widgets -->
-			</div>
-		</div>
-
-	</footer>	
-		
+    <footer id="footer">
+        <div class="inner">
+            <div class="content">
+                <section>
+                    <h3>Service Relation Clientèle</h3>
+                    <p>Nous sommes à votre écoute 24h/24, 7j/7 sur Messenger, Facebook et Twitter pour faciliter
+                        votre
+                        voyage. Nous vous aidons où que vous soyez</p>
+                </section>
+                <section>
+                    <ul class="alt">
+                        <li><a href="index.php">Accueil</a></li>
+                        <li>
+                            <a href="about.html"></a>Informations
+                        </li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </section>
+                <section>
+                    <h4>Visitez nos réseaux sociaux</h4>
+                    <ul class="plain">
+                        <li><a href="#"><i class="icon fa-twitter">&nbsp;</i>Twitter</a></li>
+                        <li><a href="#"><i class="icon fa-facebook">&nbsp;</i>Facebook</a></li>
+                        <li><a href="#"><i class="icon fa-instagram">&nbsp;</i>Instagram</a></li>
+                        <li><a href="#"><i class="icon fa-github">&nbsp;</i>Github</a></li>
+                    </ul>
+                </section>
+            </div>
+            <div class="copyright">
+                &copy; 2020, CentraleAir. Designed by<a href="https://unsplash.co">Groupe Centrale</a>
+            </div>
+        </div>
+    </footer>
 
 
 
 
-		<!-- Scripts -->
-		<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
+
 </html>
